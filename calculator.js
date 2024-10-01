@@ -17,9 +17,9 @@ const subtraction = (num1, num2) => {
     return Math.abs(num1 - num2);
 }
 
-const multiplication = (...num) {
+const multiplication = (...num) => {
     let total = 0;
-    for(const arg of num) {
+    for (const arg of num) {
         total *= arg;
     }
     return total;
@@ -47,4 +47,9 @@ const operate = (operator, num1, num2) => {
         default:
             console.log("error");
     }
+
+    if(result === 0) {
+        return 'Error';
+    }
+    return result;
 }

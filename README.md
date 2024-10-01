@@ -15,3 +15,5 @@ User interface should have
 -Buttons that give a simple number value
 -Button press to show the input value on screen
  
+Creating a screen for the values
+creating buttons
