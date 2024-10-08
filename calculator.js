@@ -53,3 +53,40 @@ const operate = (operator, num1, num2) => {
     }
     return result;
 }
+
+const press = (digit) => {
+    let input = document.querySelector("input");
+    if(digit === '*' || digit === '/' || digit === '-' || digit === '+') {
+        console.log(digit);
+    } else {
+        input.value = digit; 
+        console.log(digit);
+    }
+}
+
+let val = 0;
+//adding all the event listeners
+let button = document.querySelectorAll("#operand");
+let operator = document.querySelectorAll("#operator");
+
+button.forEach(element => {
+    element.addEventListener('click', () => {
+        press(element.textContent)
+    })
+})
+
+operator.forEach(element => {
+    element.addEventListener('click', () => {
+        press(element.textContent);
+    })
+})
+
+
+
+/*button.addEventListener("click", () => {
+   val = this.value;
+   console.log(this);
+    return 0;
+})*/
+
+//console.log(val);
