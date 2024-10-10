@@ -55,11 +55,15 @@ const operate = (operator, num1, num2) => {
 }
 
 const press = (digit) => {
-    let input = document.querySelector("input");
+    
     if(digit === '*' || digit === '/' || digit === '-' || digit === '+') {
         console.log(digit);
     } else {
-        input.value = digit; 
+        if(input.value === '0') {
+            input.value = digit;
+        } else {
+        input.value += digit;
+        } 
         console.log(digit);
     }
 }
@@ -68,6 +72,8 @@ let val = 0;
 //adding all the event listeners
 let button = document.querySelectorAll("#operand");
 let operator = document.querySelectorAll("#operator");
+let input = document.querySelector("input");
+input.value = 0;
 
 button.forEach(element => {
     element.addEventListener('click', () => {
