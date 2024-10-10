@@ -57,22 +57,33 @@ const operate = (operator, num1, num2) => {
 const press = (digit) => {
     
     if(digit === '*' || digit === '/' || digit === '-' || digit === '+') {
-        console.log(digit);
+        operatorVal = digit;
+        if(val2 === 0) {
+            val2 = parseInt(input.value);
+        } else {
+            val1 = operate(operatorVal, val1, digit);
+        }
     } else {
         if(input.value === '0') {
             input.value = digit;
+            val1 = parseInt(input.value);
         } else {
-        input.value += digit;
+            input.value += digit;
+            val1 = parseInt(input.value);
         } 
         console.log(digit);
     }
 }
 
-let val = 0;
+let val1 = 0;
+let val2 = 0;
+let allTotal = 0;
+let operatorVal = '';
 //adding all the event listeners
 let button = document.querySelectorAll("#operand");
 let operator = document.querySelectorAll("#operator");
 let input = document.querySelector("input");
+let equal = document.querySelector("#equal")
 input.value = 0;
 
 button.forEach(element => {
@@ -87,6 +98,9 @@ operator.forEach(element => {
     })
 })
 
+equal.addEventListener('click', () => {
+    operate(operatorVal, val1, val2);
+})
 
 
 /*button.addEventListener("click", () => {
