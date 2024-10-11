@@ -5,24 +5,16 @@
 
 //create an event listener to help listen in on number keys
 
-const addition = (...num) => {
-    let total = 0;
-    for (const arg of num) {
-        total += arg;
-    }
-    return total;
+const addition = (num1, num2) => {
+    return num1 + num2;
 }
 
 const subtraction = (num1, num2) => {
     return Math.abs(num1 - num2);
 }
 
-const multiplication = (...num) => {
-    let total = 0;
-    for (const arg of num) {
-        total *= arg;
-    }
-    return total;
+const multiplication = (num1, num2) => {
+    return num1 * num2;
 }
 
 const division = (val1, val2) => {
@@ -35,15 +27,20 @@ const division = (val1, val2) => {
 
 const operate = (operator, num1, num2) => {
     let result = 0;
+    console.log(operator === '+');
     switch(operator) {
-        case "+":
+        case '+':
             result = addition(num1, num2);
-        case "-":
+            break;
+        case '-':
             result = subtraction(num1, num2);
-        case "*":
+            break;
+        case '*':
             result = multiplication(num1, num2);
-        case "/":
+            break;
+        case '/':
             result = division(num1, num2);
+            break;
         default:
             console.log("error");
     }
@@ -55,23 +52,37 @@ const operate = (operator, num1, num2) => {
 }
 
 const press = (digit) => {
-    
+    console.log(input.value);
     if(digit === '*' || digit === '/' || digit === '-' || digit === '+') {
-        operatorVal = digit;
-        if(val2 === 0) {
-            val2 = parseInt(input.value);
-        } else {
-            val1 = operate(operatorVal, val1, digit);
+        if(val2 !== 0) {
+            val1 = operate(operatorVal, val1, val2);
+            val2 = 0;
         }
+        operatorVal = digit;
+        isInput = true;
     } else {
-        if(input.value === '0') {
-            input.value = digit;
-            val1 = parseInt(input.value);
+        if(val1 === 0) {
+            if(input.value === '0') {
+                input.value = digit;
+                val1 = parseInt(input.value);
+            } else {
+                input.value += digit;
+                val1 = parseInt(input.value);
+            } 
         } else {
-            input.value += digit;
-            val1 = parseInt(input.value);
-        } 
-        console.log(digit);
+            console.log('hit')
+            console.log(val1)
+            console.log(input.value);
+            if(isInput) {
+                input.value = digit;
+                val2 = parseInt(input.value);
+                isInput = false;
+            } else {
+                input.value += digit;
+                val2 = parseInt(input.value);
+            }
+        }
+
     }
 }
 
@@ -79,6 +90,7 @@ let val1 = 0;
 let val2 = 0;
 let allTotal = 0;
 let operatorVal = '';
+let isInput = false;
 //adding all the event listeners
 let button = document.querySelectorAll("#operand");
 let operator = document.querySelectorAll("#operator");
@@ -99,7 +111,8 @@ operator.forEach(element => {
 })
 
 equal.addEventListener('click', () => {
-    operate(operatorVal, val1, val2);
+    allTotal = operate(operatorVal, val1, val2);
+    input.value = allTotal;
 })
 
 
