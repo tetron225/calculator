@@ -27,7 +27,6 @@ const division = (val1, val2) => {
 
 const operate = (operator, num1, num2) => {
     let result = 0;
-    console.log(operator === '+');
     switch(operator) {
         case '+':
             result = addition(num1, num2);
@@ -96,6 +95,7 @@ let button = document.querySelectorAll("#operand");
 let operator = document.querySelectorAll("#operator");
 let input = document.querySelector("input");
 let equal = document.querySelector("#equal")
+let clear = document.querySelector("#clear")
 input.value = 0;
 
 button.forEach(element => {
@@ -114,6 +114,17 @@ equal.addEventListener('click', () => {
     allTotal = operate(operatorVal, val1, val2);
     input.value = allTotal;
 })
+
+clear.addEventListener('click', () => {
+    val1 = 0;
+    val2 = 0;
+    allTotal = 0;
+    operatorVal = '';
+    isInput = false;
+    input.value = 0;
+})
+
+
 
 
 /*button.addEventListener("click", () => {
