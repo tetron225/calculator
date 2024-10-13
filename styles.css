@@ -26,3 +26,8 @@ button {
     flex-shrink: 2
 
 }
+
+input {
+    text-align: right;
+    overflow: hidden;
+}

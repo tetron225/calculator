@@ -97,24 +97,25 @@ let input = document.querySelector("input");
 let equal = document.querySelector("#equal");
 let clear = document.querySelector("#clear");
 let percent = document.querySelector("#percent");
+let sign = document.querySelector('#sign');
 input.value = 0;
 
 button.forEach(element => {
     element.addEventListener('click', () => {
         press(element.textContent)
-    })
-})
+    });
+});
 
 operator.forEach(element => {
     element.addEventListener('click', () => {
         press(element.textContent);
-    })
-})
+    });
+});
 
 equal.addEventListener('click', () => {
     allTotal = operate(operatorVal, val1, val2);
     input.value = allTotal;
-})
+});
 
 clear.addEventListener('click', () => {
     val1 = 0;
@@ -123,10 +124,18 @@ clear.addEventListener('click', () => {
     operatorVal = '';
     isInput = false;
     input.value = 0;
-})
+});
 
 percent.addEventListener('click', () => {
     input.value = input.value / 100;
+});
+
+sign.addEventListener('click', () => {
+    let temp = parseInt(input.value) * -1;
+    console.log(typeof temp, temp);
+    console.log((temp).toString());
+    input.value = temp.toString();
+    console.log(input.value);
 })
 
 
