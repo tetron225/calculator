@@ -94,8 +94,9 @@ let isInput = false;
 let button = document.querySelectorAll("#operand");
 let operator = document.querySelectorAll("#operator");
 let input = document.querySelector("input");
-let equal = document.querySelector("#equal")
-let clear = document.querySelector("#clear")
+let equal = document.querySelector("#equal");
+let clear = document.querySelector("#clear");
+let percent = document.querySelector("#percent");
 input.value = 0;
 
 button.forEach(element => {
@@ -124,6 +125,9 @@ clear.addEventListener('click', () => {
     input.value = 0;
 })
 
+percent.addEventListener('click', () => {
+    input.value = input.value / 100;
+})
 
 
 
