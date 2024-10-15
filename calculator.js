@@ -59,9 +59,11 @@ const press = (digit) => {
             
             val1 = operate(operatorVal, val1, val2);
             val2 = 0;
+        } else {
+            operatorVal = digit;
+            isInput = true;
+            val1 = parseInt(input.value);
         }
-        operatorVal = digit;
-        isInput = true;
     } else {
         if(operatorVal === '') {
             if(input.value === '0') {
