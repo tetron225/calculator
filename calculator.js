@@ -6,6 +6,8 @@
 //create an event listener to help listen in on number keys
 
 const addition = (num1, num2) => {
+    console.log(num1, num2)
+    console.log(num1 + num2)
     return num1 + num2;
 }
 
@@ -54,33 +56,33 @@ const press = (digit) => {
     console.log(input.value);
     if(digit === '*' || digit === '/' || digit === '-' || digit === '+') {
         if(val2 !== 0) {
-            console.log('hit');
-            console.log(val2)
-            
             val1 = operate(operatorVal, val1, val2);
             val2 = 0;
         } else {
             operatorVal = digit;
             isInput = true;
-            val1 = parseInt(input.value);
+            val1 = parseFloat(input.value);
         }
     } else {
         if(operatorVal === '') {
             if(input.value === '0') {
                 input.value = digit;
-                val1 = parseInt(input.value);
+                console.log(input.value);
+                val1 = parseFloat(input.value);
+                
             } else {
                 input.value += digit;
-                val1 = parseInt(input.value);
+                console.log(input.value);
+                val1 = parseFloat(input.value);
             } 
         } else {
             if(isInput) {
                 input.value = digit;
-                val2 = parseInt(input.value);
+                val2 = parseFloat(input.value);
                 isInput = false;
             } else {
                 input.value += digit;
-                val2 = parseInt(input.value);
+                val2 = parseFloat(input.value);
             }
         }
 
@@ -100,7 +102,14 @@ let equal = document.querySelector("#equal");
 let clear = document.querySelector("#clear");
 let percent = document.querySelector("#percent");
 let sign = document.querySelector('#sign');
+//implement percentage and decimal
+let decimal = document.querySelector('#decimal')
+
 input.value = 0;
+
+decimal.addEventListener('click', () => {
+    input.value += '.'
+})
 
 button.forEach(element => {
     element.addEventListener('click', () => {
@@ -115,6 +124,7 @@ operator.forEach(element => {
 });
 
 equal.addEventListener('click', () => {
+    console.log(val1, val2)
     allTotal = operate(operatorVal, val1, val2);
     input.value = allTotal;
 });
@@ -133,11 +143,8 @@ percent.addEventListener('click', () => {
 });
 
 sign.addEventListener('click', () => {
-    let temp = parseInt(input.value) * -1;
-    console.log(typeof temp, temp);
-    console.log((temp).toString());
+    let temp = parseFloat(input.value) * -1;
     input.value = temp.toString();
-    console.log(input.value);
 })
 
 
