@@ -20,11 +20,7 @@ const multiplication = (num1, num2) => {
 }
 
 const division = (val1, val2) => {
-    if(val1 > val2) {
-        return(val1/val2);
-    } else {
-        return (val2/val1);
-    }
+    return val1 / val2;
 }
 
 const operate = (operator, num1, num2) => {
@@ -102,7 +98,6 @@ let equal = document.querySelector("#equal");
 let clear = document.querySelector("#clear");
 let percent = document.querySelector("#percent");
 let sign = document.querySelector('#sign');
-//implement percentage and decimal
 let decimal = document.querySelector('#decimal')
 
 input.value = 0;
