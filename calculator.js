@@ -20,6 +20,9 @@ const multiplication = (num1, num2) => {
 }
 
 const division = (val1, val2) => {
+    if(val2 === 0) {
+        return input.value = 'THIS VALUE DOES NOT EXIST';
+    }
     return val1 / val2;
 }
 
