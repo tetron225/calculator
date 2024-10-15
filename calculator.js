@@ -54,13 +54,16 @@ const press = (digit) => {
     console.log(input.value);
     if(digit === '*' || digit === '/' || digit === '-' || digit === '+') {
         if(val2 !== 0) {
+            console.log('hit');
+            console.log(val2)
+            
             val1 = operate(operatorVal, val1, val2);
             val2 = 0;
         }
         operatorVal = digit;
         isInput = true;
     } else {
-        if(val1 === 0) {
+        if(operatorVal === '') {
             if(input.value === '0') {
                 input.value = digit;
                 val1 = parseInt(input.value);
@@ -69,9 +72,6 @@ const press = (digit) => {
                 val1 = parseInt(input.value);
             } 
         } else {
-            console.log('hit')
-            console.log(val1)
-            console.log(input.value);
             if(isInput) {
                 input.value = digit;
                 val2 = parseInt(input.value);

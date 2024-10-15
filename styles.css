@@ -27,7 +27,7 @@ button {
 
 }
 
-input {
+#number {
     text-align: right;
     overflow: hidden;
 }
