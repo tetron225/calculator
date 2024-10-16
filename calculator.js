@@ -4,28 +4,17 @@
 //Create a division function
 
 //create an event listener to help listen in on number keys
-
-const addition = (num1, num2) => {
-    console.log(num1, num2)
-    console.log(num1 + num2)
-    return num1 + num2;
-}
-
-const subtraction = (num1, num2) => {
-    return Math.abs(num1 - num2);
-}
-
-const multiplication = (num1, num2) => {
-    return num1 * num2;
-}
-
+//------------------------Math Functions------------------------------------------------------
+const addition = (num1, num2) => {return num1 + num2;}
+const subtraction = (num1, num2) => {return num1 - num2;}
+const multiplication = (num1, num2) => {return num1 * num2;}
 const division = (val1, val2) => {
     if(val2 === 0) {
         return input.value = 'THIS VALUE DOES NOT EXIST';
     }
     return val1 / val2;
 }
-
+//--------------------------------------------------------------------------------------------
 const operate = (operator, num1, num2) => {
     let result = 0;
     switch(operator) {
