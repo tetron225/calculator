@@ -112,6 +112,9 @@ operator.forEach(element => {
 
 equal.addEventListener('click', () => {
     console.log(val1, val2)
+    if (input.value !== 0 && val2 === 0) {
+        val2 = parseFloat(input.value);
+    }
     allTotal = operate(operatorVal, val1, val2);
     input.value = allTotal;
 });
