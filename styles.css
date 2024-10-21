@@ -8,12 +8,15 @@ input {
 }
 
 #display {
-    height: 200px;
+    height: 550px;
     width: 300px;
-    padding: 100px;
+    padding: 20px;
+    background-color: gray;
+    margin: 75px;
 }
 
 #container {
+    height: 100%;
 }
 
 #number {
@@ -24,7 +27,26 @@ input {
 button {
     width: 75px;
     height: 75px;
+    background-color: black;
+    background: linear-gradient(109.6deg, rgb(0, 0, 0) 11.2%, rgb(11, 132, 145) 91.1%);
+    color: white;
+    border-radius: 10%;
+    font-size: 25px;
+    /*box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);*/
+    
 }
+
+.redcolor {
+    background: radial-gradient(circle at 81.9% 53.5%, rgb(173, 53, 53) 16.3%, rgb(240, 60, 60) 100.2%);
+}
+
+.browncolor {
+    background-color: #756213;
+    background-image: linear-gradient(315deg, #756213 0%, #000000 74%);
+
+}
+
+
 
 #container2 {
     height: 300px;
@@ -33,9 +55,23 @@ button {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    flex-basis: 30%;
-    flex-grow: 3;
+    flex-basis: 0;
+    flex-grow: 1;
+}
 
+.unique {
+    width: 150px;
+    height: 75px;
+}
+
+#container3 {
+    height: 60px;
+    width: 300px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-basis:0;
+    flex-grow:3;
 }
 
 #number {
